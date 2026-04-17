@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+
+<article class="note">
+  <header class="post-header">
+    <div class="note-meta-row">
+      <span class="post-meta">
+        {% if page.course %}{{ page.course }}{% endif %}
+        {% if page.updated %} · updated {{ page.updated }}{% endif %}
+      </span>
+      {% if page.pdf %}
+        <a class="pdf-download" href="{{ page.pdf | relative_url }}" download>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
+      {% endif %}
+    </div>
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.description %}<p class="page-lede">{{ page.description }}</p>{% endif %}
+  </header>
+
+  <div class="post-body note-body">
+    {{ content }}
+  </div>
+
+  <div class="post-back">
+    <a href="{{ '/notes/' | relative_url }}">← back to notes</a>
+    {% if page.pdf %}
+      · <a href="{{ page.pdf | relative_url }}" download class="accent-link">↓ download PDF</a>
+    {% endif %}
+  </div>
+</article>
+
+<!-- KaTeX scripts AFTER content so the DOM is ready when renderMathInElement runs -->
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+  renderMathInElement(document.querySelector('.note-body'), {
+    delimiters: [
+      { left: "$$", right: "$$", display: true  },
+      { left: "$",  right: "$",  display: false }
+    ],
+    throwOnError: false
+  });
+</script>

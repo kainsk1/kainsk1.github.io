@@ -1,0 +1,18 @@
+---
+layout: page
+title: blog
+description: Occasional notes, paper reviews, and thoughts.
+permalink: /blog/
+---
+
+<ul class="entries">
+{% for post in site.posts %}
+  <li class="entry">
+    <div class="entry-date">{{ post.date | date: "%b %-d, %Y" }}</div>
+    <div>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+    </div>
+  </li>
+{% endfor %}
+</ul>

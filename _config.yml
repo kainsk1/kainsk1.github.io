@@ -1,0 +1,84 @@
+# ----------------------------------------------------------------------------
+# Site settings
+# ----------------------------------------------------------------------------
+
+title: Kains Kavuluri
+first_name: Kains
+last_name: Kavuluri
+description: >
+  Personal homepage of Kains Kavuluri, MSc student in AI at
+  Université de Montréal & Mila — Quebec AI Institute.
+url: "https://kainsk1.github.io"
+baseurl: ""
+
+# ----------------------------------------------------------------------------
+# Author / contact
+# ----------------------------------------------------------------------------
+author:
+  name: Kains Kavuluri
+  email: kainspraveen33@gmail.com
+  affiliation: Université de Montréal · Mila
+  location: Montréal, QC
+  scholar:
+  github: https://github.com/kainsk1
+  linkedin: https://www.linkedin.com/in/kainsprav
+  twitter:
+  cv_pdf: /assets/pdf/cv.pdf
+
+# ----------------------------------------------------------------------------
+# Navigation (keys matched in i18n translations)
+# ----------------------------------------------------------------------------
+nav:
+  - { name: About,      name_fr: "À propos",   url: "/#about",      type: anchor }
+  - { name: Research,   name_fr: Recherches,   url: "/#research",   type: anchor }
+  - { name: Projects,   name_fr: Projets,      url: "/#projects",   type: anchor }
+  - { name: Skills,     name_fr: Compétences,  url: "/#skills",     type: anchor }
+  - { name: Education,  name_fr: Formation,    url: "/#education",  type: anchor }
+  - { name: Experience, name_fr: "Expérience", url: "/#experience", type: anchor }
+  - { name: CV, name_fr: CV, url: /cv/, type: page }
+  - { name: Questions, name_fr: Questions, url: /questions/, type: page }
+  - { name: Notes, name_fr: Notes, url: /notes/, type: page }
+
+# ----------------------------------------------------------------------------
+# Build settings
+# ----------------------------------------------------------------------------
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:title/
+timezone: America/Montreal
+kramdown:
+  math_engine: null
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+include:
+  - _pages
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:path/
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: post }
+  - scope: { path: "", type: "notes" }
+    values: { layout: note }
+  - scope: { path: "_pages" }
+    values: { layout: page, permalink: /:basename/ }
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - style-picker.html
+  - Makefile

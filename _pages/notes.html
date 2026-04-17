@@ -1,0 +1,27 @@
+---
+layout: page
+title: lecture notes
+description: Personal notes from graduate courses at UdeM and Mila reading groups. Rough but hopefully useful. Click a title to read online; PDF download available on each page.
+permalink: /notes/
+---
+
+<ul class="entries">
+{% assign sorted_notes = site.notes | sort: 'order' %}
+{% for note in sorted_notes %}
+  <li class="entry">
+    <div class="entry-date">{{ note.course }}</div>
+    <div>
+      <h3>
+        <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
+        {% if note.pdf %}
+          <span class="note-pdf-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            pdf
+          </span>
+        {% endif %}
+      </h3>
+      {% if note.description %}<p>{{ note.description }}</p>{% endif %}
+    </div>
+  </li>
+{% endfor %}
+</ul>

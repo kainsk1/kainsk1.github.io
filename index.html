@@ -1,0 +1,257 @@
+---
+layout: default
+title: Kains Kavuluri
+---
+
+<!-- ═══════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════ -->
+<section id="about" class="page-section">
+  <div class="hero animate-in">
+    <div class="hero-photo-wrap">
+      <img class="hero-photo"
+           src="{{ '/assets/img/profile.JPG' | relative_url }}"
+           alt="Portrait of Kains Kavuluri">
+    </div>
+    <div>
+      <h1>Kains Kavuluri</h1>
+      <p class="affil" data-i18n="home.affil">MSc student · Université de Montréal &amp; Mila · Montréal, QC</p>
+      <p class="links">
+        <a href="mailto:{{ site.author.email }}">✉ email</a>
+        <a href="{{ site.author.github }}">⌥ github</a>
+        <a href="{{ site.author.linkedin }}">in linkedin</a>
+        <a href="{{ site.author.cv_pdf | relative_url }}">↗ cv</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar animate-in delay-1">
+    <div class="stat">
+      <span class="stat-value" data-target="4.3">4.3</span>
+      <span class="stat-label">GPA&nbsp;/ 4.3</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value" data-target="3">3</span>
+      <span class="stat-label">Years industry</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value" data-target="2">2</span>
+      <span class="stat-label">Ongoing research</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value" data-target="5">5</span>
+      <span class="stat-label">Eng. projects</span>
+    </div>
+  </div>
+
+  <div class="animate-in delay-2">
+    <p data-i18n="home.bio1">I'm a Master's student in Computer Science (AI) at <a href="https://diro.umontreal.ca/">Université de Montréal</a> and <a href="https://mila.quebec/">Mila - Quebec Artificial Intelligence Institute</a>, holding a GPA of 4.3/4.3.</p>
+    <p data-i18n="home.bio2">My research spans two areas. In <strong>reinforcement learning for drug discovery</strong>, I am building a discrete masked diffusion model that combines RL-based property optimization and natural language conditioning, reaching 76% of SOTA at 15% of the parameter count. In <strong>loss of plasticity in neural networks</strong>, I am exploring evolutionary algorithms as a remedy for degrading learning capacity over time.</p>
+    <p data-i18n="home.bio3">Before Mila I spent 3+ years at <strong>Deutsche Bank's Chief Innovation Office</strong> in Pune, building production LLM agents, RAG pipelines, and MLOps infrastructure for enterprise financial analysis. I hold a Bachelor's in Computer Science from <a href="https://www.nitk.ac.in/">NIT Karnataka</a>.</p>
+  </div>
+  </section>
+
+  <section-divider></section-divider>
+  <section id="news" class="page-section" data-nav-id="about">
+  <h2 class="section-heading animate-in delay-3" data-i18n="home.news">News</h2>
+  <div class="timeline animate-in delay-3">
+    <div class="timeline-item">
+      <span class="timeline-date">May 2026</span>
+      <span class="timeline-text" data-i18n="news.0">Joining CRIM as Research Intern in May 2026, working on RL and fine-tuning methods for LLM-based software co-pilots.</span>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-date">Sept 2025</span>
+      <span class="timeline-text" data-i18n="news.1">Started MSc at UdeM &amp; Mila (GPA 4.3/4.3).</span>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-date">Mar 2024</span>
+      <span class="timeline-text" data-i18n="news.2">Joined Deutsche Bank CIO as Associate; led LLM agent &amp; RAG development.</span>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-date">Dec 2021</span>
+      <span class="timeline-text" data-i18n="news.3">Graduated B.Tech from NIT Karnataka.</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     RESEARCH
+════════════════════════════════════════════ -->
+<section id="research" class="page-section">
+  <h2 class="section-heading animate-in" data-i18n="home.research">Research</h2>
+  <p class="page-lede animate-in delay-1" data-i18n="research.lede">Research projects at Mila and selected past work.</p>
+
+  <ul class="pubs">
+    {% for pub in site.data.publications %}
+      <li class="pub animate-in delay-{{ forloop.index }}">
+        <div class="pub-year">{{ pub.year }}</div>
+        <div>
+          {% if pub.badge %}<span class="pub-badge badge-{{ pub.badge }}">{{ pub.badge | upcase }}</span>{% endif %}
+          <p class="pub-title">{{ pub.title }}</p>
+          <p class="pub-authors">{{ pub.authors }}</p>
+          <p class="pub-venue">{{ pub.venue }}</p>
+          {% if pub.note %}<p class="pub-note">{{ pub.note }}</p>{% endif %}
+          <p class="pub-links">
+            {% if pub.pdf %}<a href="{{ pub.pdf }}">pdf</a>{% endif %}
+            {% if pub.arxiv %}<a href="{{ pub.arxiv }}">arXiv</a>{% endif %}
+            {% if pub.code %}<a href="{{ pub.code }}">code</a>{% endif %}
+            {% if pub.page %}<a href="{{ pub.page | relative_url }}">read more</a>{% endif %}
+          </p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     PROJECTS
+════════════════════════════════════════════ -->
+<section id="projects" class="page-section">
+  <h2 class="section-heading animate-in" data-i18n="nav.projects">Projects</h2>
+  <p class="page-lede animate-in delay-1" data-i18n="projects.lede">Selected engineering and applied ML projects.</p>
+
+  <div class="project-grid">
+    <div class="project animate-in delay-1">
+      <span class="project-icon">🏒</span>
+      <h3><a href="https://github.com/kainspraveen">Expected Goal Prediction · NHL</a></h3>
+      <p>Goal probability prediction for NHL gameplay. Peak AUC 0.88. Engineered 18+ spatial/temporal features; Bayesian and Grid Search hyperparameter tuning.</p>
+      <div class="tags">python · xgboost · pytorch · bayesian-opt</div>
+    </div>
+    <div class="project animate-in delay-2">
+      <span class="project-icon">🤖</span>
+      <h3><a href="https://github.com/kainspraveen">AI Agents for Computer Use</a></h3>
+      <p>LLM agent that browses the web via natural language instructions, using DSPy for few-shot prompting over cleaned HTML context.</p>
+      <div class="tags">python · dspy · llm-agents · html-parsing</div>
+    </div>
+    <div class="project animate-in delay-3">
+      <span class="project-icon">🔬</span>
+      <h3><a href="https://github.com/kainspraveen">Deep UNet · Melanoma Segmentation</a></h3>
+      <p>Image segmentation model for dermoscopy images used in downstream disease classification tasks.</p>
+      <div class="tags">pytorch · unet · medical-imaging</div>
+    </div>
+    <div class="project animate-in delay-4">
+      <span class="project-icon">💡</span>
+      <h3><a href="https://github.com/kainspraveen">Light-to-Camera Indoor Positioning</a></h3>
+      <p>Novel indoor positioning system for mobile devices using light-based communication, prototyped with a Raspberry Pi.</p>
+      <div class="tags">computer-vision</div>
+    </div>
+    <div class="project animate-in delay-5">
+      <span class="project-icon">🧠</span>
+      <h3><a href="https://github.com/kainspraveen">AI for Dementia</a></h3>
+      <p>iOS app helping dementia patients manage routines via voice-to-text and text-to-voice models.</p>
+      <div class="tags">swift · ios · speech · tts</div>
+    </div>
+  </div>
+  <p class="subtle animate-in" data-i18n="projects.more">More on <a href="https://github.com/kainspraveen">GitHub</a>.</p>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SKILLS
+════════════════════════════════════════════ -->
+<section id="skills" class="page-section">
+  <h2 class="section-heading animate-in">Skills</h2>
+
+  <div class="skills-grid animate-in delay-1">
+    <div class="skill-group">
+      <span class="skill-group-label">Languages</span>
+      <div class="skill-tags">
+        <span class="skill-tag featured">Python</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Swift</span>
+        <span class="skill-tag">Go</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Bash</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <span class="skill-group-label">ML / AI</span>
+      <div class="skill-tags">
+        <span class="skill-tag featured">PyTorch</span>
+        <span class="skill-tag featured">LangChain</span>
+        <span class="skill-tag">LangGraph</span>
+        <span class="skill-tag">DSPy</span>
+        <span class="skill-tag">MLflow</span>
+        <span class="skill-tag">JAX</span>
+        <span class="skill-tag">scikit-learn</span>
+        <span class="skill-tag">HuggingFace</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <span class="skill-group-label">Infra</span>
+      <div class="skill-tags">
+        <span class="skill-tag">GCP · Vertex AI</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">GitHub Actions</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">Kubernetes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     EDUCATION
+════════════════════════════════════════════ -->
+<section id="education" class="page-section">
+  <h2 class="section-heading animate-in" data-i18n="cv.education">Education</h2>
+
+  <div class="cv-row animate-in delay-1">
+    <div class="cv-when">2025 – present</div>
+    <div class="cv-what">
+      <h4 data-i18n="cv.udem.degree">M.Sc. Computer Science, Artificial Intelligence</h4>
+      <p>Université de Montréal · Mila, Quebec AI Institute</p>
+      <p data-i18n="cv.udem.detail">GPA 4.3 / 4.3 · Fundamentals of ML, Data Science, Representation Learning</p>
+    </div>
+  </div>
+  <div class="cv-row animate-in delay-2">
+    <div class="cv-when">2017 – 2021</div>
+    <div class="cv-what">
+      <h4 data-i18n="cv.nitk.degree">B.Tech. Computer Science &amp; Engineering</h4>
+      <p>National Institute of Technology Karnataka (NITK), India</p>
+      <p data-i18n="cv.nitk.detail">CV, Neural Networks, Deep Learning, Algorithms, Distributed Systems, HPC, Graph Theory</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     EXPERIENCE
+════════════════════════════════════════════ -->
+<section id="experience" class="page-section">
+  <h2 class="section-heading animate-in" data-i18n="cv.experience">Experience</h2>
+
+  <div class="cv-row animate-in delay-1">
+    <div class="cv-when">May 2026 –</div>
+    <div class="cv-what">
+      <h4 data-i18n="cv.crim.title">Research Intern, LLM Agents and Software Co-pilot</h4>
+      <p>CRIM (Centre de Recherche Informatique de Montréal) · Montréal, QC</p>
+      <p data-i18n="cv.crim.detail">Research on enabling LLMs to navigate and operate complex software as genuine co-pilots for end users, applying RL, supervised fine-tuning, and RLVR to train agents for real-world application use.</p>
+    </div>
+  </div>
+  <div class="cv-row animate-in delay-3">
+    <div class="cv-when">2021 – 2025</div>
+    <div class="cv-what">
+      <h4 data-i18n="cv.db.title">Associate / Senior Analyst / Analyst, Chief Innovation Office</h4>
+      <p>Deutsche Bank Group · Pune, India</p>
+      <p data-i18n="cv.db.detail">LLM agents for enterprise financial QA, RAG pipelines (LangChain, LangGraph, MLflow), MLOps on GCP/Vertex AI, predictive ML for ESG compliance.</p>
+    </div>
+  </div>
+  <div class="cv-row animate-in delay-4">
+    <div class="cv-when">Apr–Jun 2020</div>
+    <div class="cv-what">
+      <h4 data-i18n="cv.pulse.title">Software Engineer Intern</h4>
+      <p>Pulse Secure LLC · Bengaluru, India</p>
+      <p data-i18n="cv.pulse.detail">Deep LSTM for insider-threat detection; Node.js log visualisation platform.</p>
+    </div>
+  </div>
+</section>

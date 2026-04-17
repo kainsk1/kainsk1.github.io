@@ -1,0 +1,12 @@
+{% assign anchor_items = site.nav | where: "type", "anchor" %}
+{% if anchor_items.size > 0 %}
+<nav class="side-nav" aria-label="Page sections">
+  {% for item in anchor_items %}
+    {% assign key = item.name | downcase %}
+    <a class="side-nav-item" href="{{ item.url | relative_url }}" data-anchor="{{ key }}">
+      <span class="side-nav-label" data-i18n="nav.{{ key }}">{{ item.name }}</span>
+      <span class="side-nav-pip"></span>
+    </a>
+  {% endfor %}
+</nav>
+{% endif %}

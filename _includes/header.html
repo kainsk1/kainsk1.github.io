@@ -1,0 +1,23 @@
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.first_name }} {{ site.last_name }}</a>
+    <nav class="site-nav">
+      {% unless page.url == "/" %}
+        <a class="nav-home-link" href="{{ '/' | relative_url }}">← home</a>
+      {% endunless %}
+      {% for item in site.nav %}
+        {% assign u = item.url | relative_url %}
+        {% assign key = item.name | downcase %}
+        {% if item.type == "anchor" %}
+          <a href="{{ u }}" data-anchor="{{ key }}" data-i18n="nav.{{ key }}">{{ item.name }}</a>
+        {% else %}
+          {%- assign active = false -%}
+          {%- if page.url contains item.url and item.url != "/" -%}{%- assign active = true -%}{%- endif -%}
+          <a href="{{ u }}"{% if active %} class="active"{% endif %} data-i18n="nav.{{ key }}">{{ item.name }}</a>
+        {% endif %}
+      {% endfor %}
+      <button id="lang-toggle" aria-label="Switch language" title="Switch language">FR</button>
+      <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">◐</button>
+    </nav>
+  </div>
+</header>
