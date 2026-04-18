@@ -6,7 +6,7 @@
   badge: ongoing
   year: 2026
   note: "Learns drug-like molecule representations through discrete masked diffusion over SELFIES, with <span class='num'>100%</span> chemical validity by construction. REINFORCE with per-step gradient accumulation steers generation toward desired properties, improving drug-likeness by <span class='num'>12.8%</span>. Natural language conditioning via SciBERT cross-attention reaches <span class='num'>76%</span> of SOTA at <span class='num'>15%</span> of the parameter count."
-  page: "/blog/2025/morpheus/"
+  page: "/blog/2026/morpheus/"
 
 - title: "Reinforcement Learning in Non-Stationary Environments: Loss of plasticity and evolutionary remedies"
   authors: "<span class='me'>Kains Kavuluri</span>"

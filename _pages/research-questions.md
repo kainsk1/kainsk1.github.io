@@ -4,8 +4,38 @@ permalink: /questions/
 layout: default
 ---
 
-<h1 class="page-title" data-i18n="nav.questions">Research Questions</h1>
-<p class="page-lede" data-i18n="questions.lede">Open questions that drive my work. Some I am actively pursuing, others are longer-horizon interests.</p>
+<h1 class="page-title">Research Questions</h1>
+<p class="page-lede" data-i18n="questions.lede">Questions I find myself thinking about. Some might be new, some I need to explore more, and some are probably plain wrong.</p>
+
+<div class="rq-section">
+  <h2 class="rq-theme" data-i18n="questions.theme0.title">State-Dependent Exploration in Reinforcement Learning</h2>
+  <p class="rq-theme-desc" data-i18n="questions.theme0.desc">
+    Most exploration strategies use fixed schedules (ε-greedy, annealed entropy) that are agnostic to what the agent has already learned. What if the decision to explore were driven by a state-dependent threshold inferred from a warm-up phase, generalising gracefully to unseen states?
+  </p>
+
+  <ol class="rq-list">
+    <li class="rq-item">
+      <span class="rq-q" data-i18n="questions.q0a">
+        <strong>Warm-up-derived adaptive thresholds.</strong>
+        UCB-style methods set T(s) = Q(s) + λ · σ<sub>Q</sub>(s) globally. The open question is whether a threshold learned during a warm-up phase in environment E can serve as a structured prior for later interaction: exploit when Q(s, a) ≥ T(s), explore when Q(s, a) &lt; T(s). Does this warm-up prior give a meaningful advantage over a UCB baseline that has no such phase?
+      </span>
+    </li>
+    <li class="rq-item">
+      <span class="rq-q" data-i18n="questions.q0b">
+        <strong>Nearest-neighbour generalisation for unseen states.</strong>
+        For states never visited during warm-up, the threshold can be approximated via a nearest-neighbour lookup: Explore(s) = 𝕀[Q(s, a) &lt; T(NN(s))]. How does the choice of distance metric in state space affect the quality of this generalisation, and does it outperform learned uncertainty estimates (e.g. ensemble disagreement, epistemic uncertainty from Bayesian Q-networks)?
+      </span>
+    </li>
+    <li class="rq-item">
+      <span class="rq-q" data-i18n="questions.q0c">
+        <strong>Interaction with plasticity loss.</strong>
+        If the agent's Q-function degrades over time (loss of plasticity), the warm-up threshold table becomes stale. Can the threshold be updated incrementally — and does this create a feedback loop where exploration recovers plasticity, which in turn improves the threshold estimates?
+      </span>
+    </li>
+  </ol>
+</div>
+
+<div class="rq-divider"></div>
 
 <div class="rq-section">
   <h2 class="rq-theme" data-i18n="questions.theme1.title">Molecule–Language Alignment Without Paired Data</h2>
