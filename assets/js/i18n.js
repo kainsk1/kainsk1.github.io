@@ -27,9 +27,9 @@ const TRANSLATIONS = {
 
     /* ── News items ── */
     "badge.upcoming": "upcoming",
-    "news.0": "Joining CRIM as Research Intern in May 2026, working on RL and fine-tuning methods for LLM-based software co-pilots.",
+    "news.0": "Joining CRIM as Research Intern in May 2026, researching RL and RLVR methods to improve LLMs as co-pilots for complex software.",
     "news.1": "Started MSc at UdeM &amp; Mila (GPA 4.3/4.3).",
-    "news.2": "Joined Deutsche Bank CIO; built LLM agents and RAG pipelines for enterprise financial analysis.",
+    "news.2": "Joined Deutsche Bank CIO; worked on financial AI for regulatory requirements, LLM agents, fine-tuning, and safety evaluation of LLM systems.",
     "news.3": "Graduated B.Tech from NIT Karnataka.",
 
     /* ── Research page ── */
@@ -115,9 +115,9 @@ const TRANSLATIONS = {
 
     /* ── News items ── */
     "badge.upcoming": "à venir",
-    "news.0": "Stagiaire de recherche au CRIM à partir de mai 2026, travaillant sur des méthodes AR et d'affinage fin pour les co-pilotes logiciels basés sur des LLM.",
+    "news.0": "Stagiaire de recherche au CRIM à partir de mai 2026, travaillant sur la capacité des LLM à naviguer et utiliser des logiciels complexes comme co-pilotes pour les utilisateurs.",
     "news.1": "Début de la maîtrise à UdeM &amp; Mila (moyenne 4,3/4,3).",
-    "news.2": "Rejoins Deutsche Bank CIO en tant qu'associé ; développement d'agents LLM et de pipelines RAG.",
+    "news.2": "Rejoint Deutsche Bank CIO ; travaux sur l'IA financière réglementaire, agents LLM, fine-tuning et évaluation de la sécurité des systèmes LLM.",
     "news.3": "Diplômé en B.Tech. du NIT Karnataka.",
 
     /* ── Research page ── */
