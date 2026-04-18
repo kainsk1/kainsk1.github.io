@@ -4,6 +4,9 @@ permalink: /questions/
 layout: default
 ---
 
+<script>MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] } };</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
 <h1 class="page-title">Research Questions</h1>
 <p class="page-lede" data-i18n="questions.lede">Questions I find myself thinking about. Some might be new, some I need to explore more, and some are probably plain wrong.</p>
 
@@ -17,13 +20,13 @@ layout: default
     <li class="rq-item">
       <span class="rq-q" data-i18n="questions.q0a">
         <strong>Warm-up-derived adaptive thresholds.</strong>
-        UCB-style methods set T(s) = Q(s) + λ · σ<sub>Q</sub>(s) globally. The open question is whether a threshold learned during a warm-up phase in environment E can serve as a structured prior for later interaction: exploit when Q(s, a) ≥ T(s), explore when Q(s, a) &lt; T(s). Does this warm-up prior give a meaningful advantage over a UCB baseline that has no such phase?
+        UCB-style methods set $T(s) = Q(s) + \lambda \cdot \sigma_Q(s)$ globally. The open question is whether a threshold learned during a warm-up phase in environment E can serve as a structured prior for later interaction: exploit when $Q(s, a) \geq T(s)$, explore when $Q(s, a) < T(s)$. Does this warm-up prior give a meaningful advantage over a UCB baseline that has no such phase?
       </span>
     </li>
     <li class="rq-item">
       <span class="rq-q" data-i18n="questions.q0b">
         <strong>Nearest-neighbour generalisation for unseen states.</strong>
-        For states never visited during warm-up, the threshold can be approximated via a nearest-neighbour lookup: Explore(s) = 𝕀[Q(s, a) &lt; T(NN(s))]. How does the choice of distance metric in state space affect the quality of this generalisation, and does it outperform learned uncertainty estimates (e.g. ensemble disagreement, epistemic uncertainty from Bayesian Q-networks)?
+        For states never visited during warm-up, the threshold can be approximated via a nearest-neighbour lookup: $\text{Explore}(s) = \mathbb{1}[Q(s,a) < T(\text{NN}(s))]$. How does the choice of distance metric in state space affect the quality of this generalisation, and does it outperform learned uncertainty estimates (e.g. ensemble disagreement, epistemic uncertainty from Bayesian Q-networks)?
       </span>
     </li>
     <li class="rq-item">
@@ -47,19 +50,19 @@ layout: default
     <li class="rq-item">
       <span class="rq-q" data-i18n="questions.q1">
         <strong>Self-supervised representations as a bridge.</strong>
-        Contrastive learning can pull together structurally similar molecules and push apart dissimilar ones — learning an embedding space without any text labels. The objective is L = −log[exp(sim(z<sub>i</sub>, z<sub>j</sub>) / τ) / Σ<sub>k</sub> exp(sim(z<sub>i</sub>, z<sub>k</sub>) / τ)]. Can representations trained this way transfer to text-conditioned generation, closing the data-scarcity gap?
+        Contrastive learning can pull together structurally similar molecules and push apart dissimilar ones — learning an embedding space without any text labels. The objective is $\mathcal{L} = -\log\dfrac{\exp(\text{sim}(z_i, z_j)/\tau)}{\sum_k \exp(\text{sim}(z_i, z_k)/\tau)}$. Can representations trained this way transfer to text-conditioned generation, closing the data-scarcity gap?
       </span>
     </li>
     <li class="rq-item">
       <span class="rq-q" data-i18n="questions.q2">
         <strong>Curriculum learning over chemical space.</strong>
-        Not all molecules are equally informative at every stage of training. Can Fisher information (I(θ) = E[∇<sub>θ</sub> log p<sub>θ</sub>(x) ∇<sub>θ</sub> log p<sub>θ</sub>(x)<sup>T</sup>]) or a similar complexity measure serve as a curriculum signal — ordering pretext tasks or datasets so the model builds from simple scaffolds to complex polycyclic structures?
+        Not all molecules are equally informative at every stage of training. Can Fisher information ($I(\theta) = \mathbb{E}[\nabla_\theta \log p_\theta(x)\, \nabla_\theta \log p_\theta(x)^\top]$) or a similar complexity measure serve as a curriculum signal — ordering pretext tasks or datasets so the model builds from simple scaffolds to complex polycyclic structures?
       </span>
     </li>
     <li class="rq-item">
       <span class="rq-q" data-i18n="questions.q3">
         <strong>Recursive reasoning in latent chemical space.</strong>
-        Language models reason better when they can think step-by-step. Can a model iteratively refine a molecular latent vector z<sub>t+1</sub> = f(z<sub>t</sub>, c) conditioned on text c before decoding — analogous to chain-of-thought but operating over a continuous chemical manifold? Gated attention or a SteerViT-style mechanism could mediate this.
+        Language models reason better when they can think step-by-step. Can a model iteratively refine a molecular latent vector $z_{t+1} = f(z_t, c)$ conditioned on text $c$ before decoding — analogous to chain-of-thought but operating over a continuous chemical manifold? Gated attention or a SteerViT-style mechanism could mediate this.
       </span>
     </li>
     <li class="rq-item">
@@ -104,7 +107,7 @@ layout: default
     <li class="rq-item">
       <span class="rq-q" data-i18n="questions.q8">
         <strong>Selective per-response gradient updates.</strong>
-        Rather than applying a scalar reward to the entire response, can an agent apply a signed update mask M<sub>t</sub> ∈ {−1, 0, +1} to individual response segments — doing gradient descent on parts it judges poor ("say less of this") and gradient ascent on parts it judges good ("learn to do more of this")? How should M<sub>t</sub> be decided, and can it be learned?
+        Rather than applying a scalar reward to the entire response, can an agent apply a signed update mask $M_t \in \{-1, 0, +1\}$ to individual response segments — doing gradient descent on parts it judges poor ("say less of this") and gradient ascent on parts it judges good ("learn to do more of this")? How should $M_t$ be decided, and can it be learned?
       </span>
     </li>
     <li class="rq-item">
