@@ -27,8 +27,8 @@ permalink: /projects/
 
   <div class="project">
     <h3><a href="https://github.com/kainspraveen">Light-to-Camera Indoor Positioning</a></h3>
-    <p>Novel indoor positioning system for mobile devices using light-based communication, prototyped with a Raspberry Pi.</p>
-    <div class="tags">raspberry-pi · embedded · computer-vision · positioning</div>
+    <p>Novel indoor positioning system for mobile devices using light-based communication.</p>
+    <div class="tags">computer-vision · positioning</div>
   </div>
 
   <div class="project">
