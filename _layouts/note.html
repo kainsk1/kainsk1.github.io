@@ -33,14 +33,25 @@ layout: default
   </div>
 </article>
 
-<!-- KaTeX scripts AFTER content so the DOM is ready when renderMathInElement runs -->
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 <script>
+
+  document.querySelectorAll('script[type^="math/tex"]').forEach(function(el) {
+    var display = el.type.indexOf('mode=display') !== -1;
+    var wrapper = document.createElement(display ? 'div' : 'span');
+    wrapper.textContent = display
+      ? '$$' + el.textContent + '$$'
+      : '$' + el.textContent + '$';
+    el.parentNode.replaceChild(wrapper, el);
+  });
+
   renderMathInElement(document.querySelector('.note-body'), {
     delimiters: [
-      { left: "$$", right: "$$", display: true  },
-      { left: "$",  right: "$",  display: false }
+      { left: "$$",  right: "$$",  display: true  },
+      { left: "\\[", right: "\\]", display: true  },
+      { left: "$",   right: "$",   display: false },
+      { left: "\\(", right: "\\)", display: false }
     ],
     throwOnError: false
   });
